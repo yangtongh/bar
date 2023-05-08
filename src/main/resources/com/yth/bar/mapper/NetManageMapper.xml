@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yth.bar.mapper.NetManageMapper">
+    <insert id="add">
+        insert into NetManage
+        values (null,#{account}, #{managename}, #{sex}, #{age}, #{tel}, #{status}, #{notes})
+    </insert>
+    <update id="update">
+        update NetManage
+        <set>
+            account=#{account},
+            managename=#{managename},sex=#{sex},age=#{age},
+            tel=#{tel},status=#{status},notes=#{notes}
+        </set>
+    </update>
+    <delete id="delete">
+        delete from NetManage where id=#{id}
+    </delete>
+
+
+    <select id="selectByCondition" resultType="com.yth.bar.pojo.Member">
+        select * from NetManage where managename=#{managename} and account=#{account}
+    </select>
+    <select id="select" resultType="com.yth.bar.pojo.NetManage">
+        select * from NetManage
+    </select>
+</mapper>

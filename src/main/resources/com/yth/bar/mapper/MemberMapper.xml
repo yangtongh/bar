@@ -6,8 +6,24 @@
     <insert id="add" keyProperty="id" keyColumn="id">
         insert into member values (null,#{account},#{membername},#{sex},#{tel},#{email},#{surplus},#{date})
     </insert>
+    <update id="update">
+        update member
+        <set>
+            account=#{account},membername=#{membername},sex=#{sex},
+            tel=#{tel},email=#{email},surplus=#{surplus},
+            date=#{date}
+        </set>
+        where id =#{id}
+    </update>
 
+    <delete id="delete">
+        delete from member where id=#{id}
+    </delete>
+
+    <select id="selectByCondition" resultType="com.yth.bar.pojo.Member">
+        select * from member where membername=#{membername} and sex=#{sex}
+    </select>
     <select id="select" resultType="com.yth.bar.pojo.Member">
-        select * from memeber where id=#{id}
+        select * from member
     </select>
 </mapper>

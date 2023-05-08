@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Netmanage {
+public class NetManage {
     private  int id;
     private  String management;
     private  String sex;
